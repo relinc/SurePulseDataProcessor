@@ -2,6 +2,7 @@
 <project name="SUREPulseDataProcessor" default="do-deploy" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
 	<property name="version.no" value="1.10.8"/>
 	<property name="workspace.dir" value="..\.." />
+
 	<target name="init-fx-tasks">
 		<path id="fxant">
 			<filelist>
@@ -254,7 +255,6 @@
 				<filename name="equation-0.28.jar"/>
 			</fileset>
 		</copy>
-
 
 
 		<echo file="surepulseversioninfo.txt" append="false">Version No:${version.no}</echo>
