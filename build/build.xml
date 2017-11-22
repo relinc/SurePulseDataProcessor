@@ -2,6 +2,7 @@
 <project name="SUREPulseDataProcessor" default="do-deploy" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
 	<property name="version.no" value="1.10.8"/>
 	<property name="workspace.dir" value="..\.." />
+
 	<target name="init-fx-tasks">
 		<path id="fxant">
 			<filelist>
@@ -27,13 +28,12 @@
 				<filename name="commons-math3-3.5.jar"/>
 			</fileset>
 		</copy>
-		
+
 		<copy todir="externalLibs">
 			<fileset dir="..\..\..\.p2\pool\plugins\org.junit_4.12.0.v201504281640">
 				<filename name="junit.jar"/>
 			</fileset>
 		</copy>
-		
 		<copy todir="externalLibs">
 			<fileset dir="${workspace.dir}/SurePulseDataProcessor\lib">
 				<filename name="jscience.jar"/>
@@ -150,6 +150,16 @@
 					<fileset dir="${workspace.dir}/SUREPulseImageCorrelation/lib/boofcv-v0.19-libs">
 						<filename name="BoofCV-ip-0.19.jar"/>
 					</fileset>
+				</copy>
+				<copy todir="externalLibs">
+							<fileset dir="${workspace.dir}/SUREPulseImageCorrelation/lib">
+								<filename name="json-simple-1.1.1.jar"/>
+							</fileset>
+				</copy>
+				<copy todir="externalLibs">
+							<fileset dir="${workspace.dir}/SUREPulseImageCorrelation/lib">
+								<filename name="json-simple-1.1.1-javadoc.jar"/>
+							</fileset>
 				</copy>
 				<copy todir="externalLibs">
 					<fileset dir="${workspace.dir}/SUREPulseImageCorrelation/lib/boofcv-v0.19-libs">
@@ -347,6 +357,7 @@
 				<include name="xpp3_min-1.1.4c.jar" />
 				<include name="imgscalr-lib-4.2.jar" />
 				<include name="junit.jar" />
+				<include name="json-simple-1.1.1.jar" />
 			</fileset>
 		</copy>
 
