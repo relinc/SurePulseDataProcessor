@@ -769,7 +769,8 @@ public class TrimDataController {
 		double[] fittedData = yData.clone();
 		
 		if(getActivatedData().modifiers.getLowPassModifier().activated.get()){
-			filteredYData = SPMath.fourierLowPassFilter(filteredYData, getActivatedData().modifiers.getLowPassModifier().getLowPassValue(), 1.0 / (xData[1] - xData[0]));
+			int taps = (int) (1.2*2*barSetup.IncidentBar.diameter/barSetup.IncidentBar.getWaveSpeed()/(xData[1]-xData[0]));
+			filteredYData = SPMath.fourierLowPassFilter(filteredYData, getActivatedData().modifiers.getLowPassModifier().getLowPassValue(), 1.0 / (xData[1] - xData[0]),taps);
 		}
 		if(getActivatedData().modifiers.getZeroModifier().activated.get()){
 			zeroedData = SPMath.subtractFrom(zeroedData, ((ZeroOffset)getActivatedData().modifiers.getModifier(ModifierEnum.ZERO)).getZero());
@@ -996,7 +997,9 @@ public class TrimDataController {
 		if(m instanceof LowPass)
 		{
 			((LowPass)m).valueTF.textProperty().addListener((a, b, c) -> {
+				System.out.println("start call");
 				applyModifierButtonFired();
+				System.out.println("end call");
 			});
 		}
 	}
