@@ -1,3 +1,5 @@
+DEPRECATED, all SurePulse code is now here: https://github.com/relinc/SurePulse
+
 # SurePulseDataProcessor
 Part of the Sure-Pulse software package.
 
